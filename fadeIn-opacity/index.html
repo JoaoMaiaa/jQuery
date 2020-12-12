@@ -1,1 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FadeIn | Opacity</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
 
+        h1{
+            text-align:center;
+            padding:50px 50px;
+        }
+
+        section{
+            display:flex;
+            justify-content:center;
+        }
+        .container{
+            min-width: 1280px;
+        }
+
+        .row1{
+            display:flex;
+            padding:100px 100px;
+            opacity:0;
+        }
+
+        .row1 div{
+            display:flex;
+            flex:1;
+        }
+
+        .row1 img{
+            max-width:500px;
+            padding:40px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Bem-vindo</h1>
+
+    <section>
+        <div class="container">
+            <div class="pictures">
+                <div class="row1">
+                    <div>
+                        <img src="assets/img/amsterdam2.jpg" alt="" srcset="">
+                    </div>
+                    <div>
+                        <img src="assets/img/cathedral.jpg" alt="" srcset="">
+                    </div>
+                </div>
+                <div class="row1">
+                    <div>
+                        <img src="assets/img/electric-guitar-4345340_640.jpg" alt="" srcset="">
+                    </div>
+                    <div>
+                        <img src="assets/img/north-america-1803504_640.jpg" alt="" srcset="">
+                    </div>
+                </div>
+
+                <div class="row1">
+                    <div>
+                        <img src="assets/img/north-america-1803504_640.jpg" alt="" srcset="">
+                    </div>
+                    <div>
+                        <img src="assets/img/electric-guitar-4345340_640.jpg" alt="" srcset="">
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </section>
+    
+    <script src="assets/js/jquery-3.5.1.min.js"></script>
+    <script>
+    $(()=>{
+        $(window).on('scroll', function(){
+            let scroll = $(this).scrollTop();
+
+            let row = $('.row1');
+
+            row.each(function(){
+                let item = $(this).offset().top;
+                if(scroll > item - 200){
+                    $(this).animate({
+                        opacity: '1'
+                    }, 500);
+                }
+            });
+        });
+    });
+    </script>
+</body>
+</html>
